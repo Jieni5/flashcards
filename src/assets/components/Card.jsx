@@ -29,6 +29,13 @@ const Card = ({prompt = [["A young escort from Brooklyn meets and impulsively ma
         }
         
     }
+    const handleShuffle = () => {
+        setFlipped(false);
+        setIsMatch(null);
+        let newPairIndex = Math.floor(Math.random() * prompt.length);
+        setPairIndex(newPairIndex);
+        setText(prompt[newPairIndex][0]);
+    }
 
     const onInput = (e) => {  
         setFilmName(e.target.value);
@@ -73,6 +80,7 @@ const Card = ({prompt = [["A young escort from Brooklyn meets and impulsively ma
             
         <button onClick={handlePrev}>Prev</button>
         <button onClick={handleNext}>Next</button>
+        <button onClick={handleShuffle}>Shuffle</button>
         
     </div>
   )
